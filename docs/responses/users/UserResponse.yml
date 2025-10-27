@@ -1,0 +1,8 @@
+title: UserResponse
+allOf:
+  - type: object
+    properties:
+      data:
+        $ref: ../../schemas/models/User.yml
+required:
+  - data

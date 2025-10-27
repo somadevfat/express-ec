@@ -1,0 +1,80 @@
+get:
+  tags:
+    - items
+  summary: 商品一覧
+  description: 商品一覧
+  parameters:
+    - $ref: ../../params/PageLimit.yml
+    - $ref: ../../params/PageOffset.yml
+    - in: query
+      name: name_like
+      description: 名前の部分一致
+      required: false
+      schema:
+        type: string
+        description: 親のID
+    - in: query
+      name: price_gte
+      description: 価格の「以上」検索
+      required: false
+      schema:
+        type: integer
+        description: 価格の「以上」検索
+    - in: query
+      name: price_lte
+      description: 価格の「以下」検索
+      required: false
+      schema:
+        type: integer
+        description: 価格の「以下」検索
+    - in: query
+      name: price_gt
+      description: 価格の「より大きい」検索
+      required: false
+      schema:
+        type: integer
+        description: 価格の「より大きい」検索
+    - in: query
+      name: price_lt
+      description: 価格の「より小さい」検索
+      required: false
+      schema:
+        type: integer
+        description: 価格の「より小さい」検索
+  responses:
+    '200':
+      description: '正常応答'
+      content:
+        application/json:
+          schema:
+            $ref: ../../responses/items/ItemsResponse.yml
+post:
+  tags:
+    - items
+  summary: 商品作成
+  description: 商品作成
+  requestBody:
+    description: リクエスト
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: ../../requests/items/StoreRequest.yml
+  responses:
+    '200':
+      description: '正常応答'
+      content:
+        application/json:
+          schema:
+            $ref: ../../responses/items/ItemResponse.yml
+#definitions:
+#  bodyContent:
+#    content:
+#      application/json:
+#        schema:
+#          $ref: '../../requests/admin/makers/MakerRequest.yml'
+#  responseContent:
+#    content:
+#      application/json:
+#        schema:
+#          $ref: '../../responses/admin/makers/MakerResponse.yml'

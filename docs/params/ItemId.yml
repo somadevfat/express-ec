@@ -1,0 +1,8 @@
+in: path
+name: ItemId
+description: 商品ID
+required: true
+schema:
+  type: integer
+  description: 商品ID
+  example: 1

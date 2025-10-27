@@ -1,0 +1,4 @@
+title: UserResponse
+type: object
+properties:
+$ref: ../../../schemas/models/User.yml

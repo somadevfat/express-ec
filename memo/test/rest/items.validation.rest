@@ -1,0 +1,18 @@
+# 変数設定
+@hostname = http://localhost
+@port = 18081
+@api = {{hostname}}:{{port}}/api
+
+###
+# 1. 一覧 成功 (クエリ有り)
+GET {{api}}/items?limit=2&page=2&price_gte=100&price_lte=2000&name_like=%E3%83%9A%E3%83%B3
+
+###
+# 2. 一覧 失敗: limit=abc
+GET {{api}}/items?limit=abc
+
+###
+# 3. 一覧 失敗: price_lt=-1
+GET {{api}}/items?price_lt=-1
+
+

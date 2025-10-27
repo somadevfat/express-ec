@@ -1,0 +1,76 @@
+### 変数定義
+@baseUrl = http://localhost:3000/api
+@bearer = 
+
+###
+# ==================================================
+# Users
+# 実装:
+#   - GET    {{baseUrl}}/users           (admin専用)
+#   - GET    {{baseUrl}}/users/:id       (認証必須)
+#   - POST   {{baseUrl}}/users           (認証必須)
+#   - PUT    {{baseUrl}}/users/:id       (認証必須)
+#   - DELETE {{baseUrl}}/users/:id       (admin専用)
+# ミドルウェア:
+#   - verifyAuthToken: Authorization: Bearer <JWT>
+#   - isAdmin: 一覧/削除に必要
+# バリデーション:
+#   - CreateUser.dto: name(1-50, 空白不可), email(形式/<=255), password(>=8, <=128, かつ 大小英数+記号)
+#   - UpdateUser.dto: 同上(全て任意)
+# 期待ステータス: 200/201, 401(未認証), 403(非管理者でadmin専用), 404(未存在), 422(バリデーション)
+# ==================================================
+###
+
+### ユーザー一覧取得 (admin専用)
+GET {{baseUrl}}/users
+Authorization: Bearer {{bearer}}
+
+### ユーザー取得 (id: 1)
+GET {{baseUrl}}/users/1
+Authorization: Bearer {{bearer}}
+
+### ユーザー作成 (成功例)
+POST {{baseUrl}}/users
+Content-Type: application/json
+Authorization: Bearer {{bearer}}
+
+{
+  "name": "Taro",
+  "email": "taro{{timestamp}}@example.com",
+  "password": "Aa1@aaaa"
+}
+
+### ユーザー作成 (バリデーション失敗: パスワード複雑性不足)
+POST {{baseUrl}}/users
+Content-Type: application/json
+Authorization: Bearer {{bearer}}
+
+{
+  "name": "Taro",
+  "email": "invalid-email",
+  "password": "password"
+}
+
+### ユーザー更新 (成功例: nameのみ)
+PUT {{baseUrl}}/users/1
+Content-Type: application/json
+Authorization: Bearer {{bearer}}
+
+{
+  "name": "Taro Updated"
+}
+
+### ユーザー更新 (バリデーション失敗: name 空白のみ)
+PUT {{baseUrl}}/users/1
+Content-Type: application/json
+Authorization: Bearer {{bearer}}
+
+{
+  "name": "   "
+}
+
+### ユーザー削除 (admin専用)
+DELETE {{baseUrl}}/users/1
+Authorization: Bearer {{bearer}}
+
+

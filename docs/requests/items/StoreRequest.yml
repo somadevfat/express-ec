@@ -1,0 +1,28 @@
+title: StoreRequest
+type: object
+properties:
+  name:
+    type: string
+    description: 名前
+    maxLength: 255
+    example: "商品"
+  price:
+    type: integer
+    description: 金額
+    example: 120
+  content:
+    type: string
+    description: 商品詳細
+    example: "商品詳細！"
+  base64:
+    type: string
+    description:
+    example: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAWgAAAFoCAMAAABNO5HnAAA"
+  extension:
+    type: string
+    description: 画像拡張子
+    example: "png"
+required:
+  - id
+  - name
+  - price

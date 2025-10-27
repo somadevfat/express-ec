@@ -1,0 +1,6 @@
+name: limit
+in: query
+description: ページネーションの１ページ当たりの表示数
+schema:
+  type: integer
+  example: 20

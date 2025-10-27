@@ -1,0 +1,14 @@
+title: AuthSignupResponse
+allOf:
+  - type: object
+    properties:
+      data:
+        properties:
+          token:
+            type: string
+            description: トークン
+            example: "1x|xxxxxxxxxxxxxxxxxx"
+        required:
+          - token
+required:
+  - data

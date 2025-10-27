@@ -1,0 +1,10 @@
+title: OrdersResponse
+allOf:
+  - $ref: ../../../schemas/models/Pagination.yml
+  - properties:
+      data:
+        type: array
+        items:
+          $ref: ../../../schemas/models/OrderWithCredit.yml
+required:
+  - data

@@ -1,0 +1,74 @@
+# 変数設定
+@hostname = http://localhost
+@port = 3000
+@api = {{hostname}}:{{port}}/api
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJhZG1pbkBleGFtcGxlLmNvbSIsIm5hbWUiOiJBZG1pbiBVc2VyIiwiaXNBZG1pbiI6dHJ1ZSwiaWF0IjoxNzU1NjczMzY1LCJleHAiOjE3NTU2NzY5NjV9.V0YrpyW8HHXaG-mq6mNh3mOuG7SX-ioNDnZhXmBR34w
+@itemId = 1
+
+###
+# 1. 商品を新規作成する (POST /items)
+# "Send Request" を実行すると、新しい商品が作成されます。
+POST {{api}}/items
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "name": "すごいキーボード",
+  "price": 15000,
+  "description": "とても打ちやすい、最高のキーボードです。",
+  "image_url": "http://example.com/image.jpg"
+}
+
+###
+# 2. 全ての商品を取得する (GET /items)
+GET {{api}}/items
+
+###
+# 3. IDを指定して商品を取得する (GET /items/:ItemId)
+# @itemId変数を設定してから実行してください。
+GET {{api}}/items/{{itemId}}
+
+###
+# 4. 商品を更新する (PUT /items/:ItemId)
+# @itemId変数を設定してから実行してください。
+PUT {{api}}/admin/items/{{itemId}}
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "name": "すごいキーボードV2",
+  "price": 18000,
+  "content": "価格を改定しました。相変わらず最高のキーボードです。"
+}
+
+
+###
+# 5. 商品を削除する (DELETE /items/:ItemId)
+# @itemId変数を設定してから実行してください。
+DELETE {{api}}/items/{{itemId}}
+Authorization: Bearer {{token}}
+
+###
+# 6. ページネーションのテスト (GET /items?limit=2&page=2)
+# 2ページ目から2件取得 (強力消しゴム, 多機能ペンケース)
+GET {{api}}/items?limit=2&page=2
+
+###
+# 7. 名前でのフィルタリングテスト (GET /items?name_like=ペン)
+# 商品名に「ペン」が含まれるものを取得 (高機能ボールペン, 多機能ペンケース)
+GET {{api}}/items?name_like=ペン
+
+###
+# 8. 価格でのフィルタリングテスト (GET /items?price_gte=1000&price_lte=2000)
+# 価格が1000円以上、2000円以下のものを取得 (高機能ボールペン, 多機能ペンケース)
+GET {{api}}/items?price_gte=1000&price_lte=2000
+
+###
+# 9. 複合条件でのテスト (GET /items?name_like=ノート&price_lte=1000)
+# 名前に「ノート」を含み、価格が1000円以下のものを取得 (シンプルノート)
+GET {{api}}/items?name_like=ノート&price_lte=1000
+
+###
+# 10. 価格でのフィルタリングテスト (より大きい/より小さい)
+# 価格が200円より大きく、2000円より小さいものを取得 (高機能ボールペン, シンプルノート, 多機能ペンケース)
+GET {{api}}/items?price_gt=200&price_lt=2000

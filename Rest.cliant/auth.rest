@@ -1,0 +1,33 @@
+### 変数定義
+@baseUrl = http://localhost:3000
+@user_email = user@example.com
+@user_password = password
+
+###
+# ==================================================
+# 認証 (Auth)
+# ==================================================
+###
+
+### ユーザーログイン (成功)
+# @name login_user
+POST {{baseUrl}}/auth/signin
+Content-Type: application/json
+
+{
+  "email": "{{user_email}}",
+  "password": "{{user_password}}"
+}
+
+### ユーザーログイン (失敗)
+POST {{baseUrl}}/auth/signin
+Content-Type: application/json
+
+{
+  "email": "invalid@example.com",
+  "password": "wrongpassword"
+}
+
+### 備考
+# - 実装済みの認証エンドポイントは POST {{baseUrl}}/auth/signin のみです。
+# - /auth/admin/signin や /auth/signout は未実装のため削除しました。

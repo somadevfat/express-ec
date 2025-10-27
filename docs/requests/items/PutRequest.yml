@@ -1,0 +1,24 @@
+title: PutRequest
+type: object
+properties:
+  name:
+    type: string
+    description: 名前
+    maxLength: 255
+    example: "商品名を更新"
+  price:
+    type: integer
+    description: 金額
+    example: 1200
+  content:
+    type: string
+    description: 商品詳細
+    example: "商品詳細を更新！"
+  base64:
+    type: string
+    description: 画像（データURL形式 または 省略）
+    example: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAWgAAAFoCAMAAABNO5HnAAA"
+  extension:
+    type: string
+    description: 画像拡張子（base64 を送る場合のみ必須）
+    enum: [png, jpg, jpeg, webp]

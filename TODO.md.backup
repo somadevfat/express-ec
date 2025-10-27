@@ -1,0 +1,94 @@
+# Express API プロジェクト実装 TODO
+
+## プロジェクト概要
+APIドキュメント（OpenAPI 3.0）に基づくExpress.js eコマースAPIの実装
+
+## 現在の状況
+- ✅ パスエイリアス問題解決済み
+- ✅ 基本的なプロジェクト構造構築済み
+- ✅ 認証、ユーザー、商品、カートの基本CRUD実装済み
+- ✅ Swagger UI 設定済み
+- ✅ Prisma ORM 設定済み
+
+## 実装が必要な機能（APIドキュメントとの差分）
+
+### 🔍 商品検索機能拡張
+**優先度: 高**
+- [ ] 価格範囲検索実装（`price_gte`, `price_lte`, `price_gt`, `price_lt`）
+- [ ] 名前部分一致検索実装（`name_like`）
+- [ ] ページネーション実装（`PageLimit`, `PageOffset`）
+- [ ] 検索クエリパラメータのバリデーション追加
+
+### �� カート機能拡張
+**優先度: 高**
+- [ ] カート追加API実装（POST /api/carts）
+- [ ] カート一覧API実装（GET /api/carts）
+- [ ] カート更新API実装（PUT /api/carts/{id}）
+- [ ] カート削除API実装（DELETE /api/carts/{id}）
+- [ ] 数量更新機能の実装
+
+### 🔐 認証機能拡張
+**優先度: 中**
+- [ ] 管理者認証機能実装（/auth/admin/signin）
+- [ ] ユーザー登録機能実装（/auth/signup - コメントアウト中）
+- [ ] JWTトークン有効性チェックミドルウェア
+- [ ] パスワードリセット機能
+
+### 👤 マイページ機能
+**優先度: 中**
+- [ ] ログインユーザー情報取得API実装（GET /my/user）
+- [ ] ユーザー情報更新API実装（PUT /my/user）
+- [ ] ユーザー情報削除API実装（DELETE /my/user）
+
+### 📊 データ整合性対応
+**優先度: 中**
+- [ ] タイムスタンプフィールドの整合性（createdAt, updatedAt）
+- [ ] 作成者・更新者フィールドの実装（createdBy, updatedBy）
+- [ ] 外部キー制約の実装（Prismaスキーマ更新）
+
+### 🧪 テスト実装
+**優先度: 中**
+- [ ] 単体テスト実装（Jest）
+- [ ] 統合テスト実装（Supertest）
+- [ ] E2Eテスト実装
+
+### 📚 ドキュメント更新
+**優先度: 低**
+- [ ] Swaggerドキュメントのレスポンススキーマ更新
+- [ ] APIエンドポイントの詳細説明追加
+- [ ] エラーレスポンスの標準化
+
+### 🔒 セキュリティ強化
+**優先度: 高**
+- [ ] 入力バリデーションの強化（Zodスキーマ更新）
+- [ ] SQLインジェクション対策の確認
+- [ ] XSS対策の実装
+- [ ] レートリミットの実装
+
+## 技術スタック
+- **Backend**: Express.js + TypeScript
+- **Database**: Prisma ORM
+- **Validation**: Zod
+- **Auth**: JWT + bcrypt
+- **Documentation**: OpenAPI 3.0 + Swagger UI
+- **Testing**: Jest + Supertest
+
+## 開発環境
+- **Runtime**: Node.js
+- **Build**: TypeScript
+- **Dev Server**: nodemon + ts-node
+- **Linting**: ESLint
+- **Package Manager**: npm
+
+## 参考プロジェクト
+- Laravelプロジェクト（@api/）を参考に以下の機能を検討：
+  - Stripe決済機能
+  - 高度なユーザー管理機能
+  - メール通知機能
+
+## 次のステップ
+1. **PLANモード**で詳細な実装計画を作成
+2. **CREATIVEモード**で設計検討（特に複雑な検索機能）
+3. **IMPLEMENTモード**で順次実装
+4. **REFLECTモード**で実装の振り返り
+5. **ARCHIVEモード**でドキュメント化

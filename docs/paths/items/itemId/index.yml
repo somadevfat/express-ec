@@ -1,0 +1,47 @@
+get:
+  tags:
+    - items
+  summary: 商品詳細
+  description: 商品詳細
+  parameters:
+    - $ref: ../../../params/ItemId.yml
+  responses:
+    '200':
+      description: '正常応答'
+      content:
+        application/json:
+          schema:
+            $ref: ../../../responses/items/ItemResponse.yml
+
+put:
+  tags:
+    - items
+  summary: 商品更新
+  description: 商品更新
+  parameters:
+    - $ref: ../../../params/ItemId.yml
+  requestBody:
+    description: 商品更新
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: ../../../requests/items/PutRequest.yml
+  responses:
+    '200':
+      description: '正常応答'
+      content:
+        application/json:
+          schema:
+            $ref: ../../../responses/items/ItemResponse.yml
+delete:
+  tags:
+    - items
+  summary: 商品削除
+  description: 商品削除
+  parameters:
+    - $ref: ../../../params/ItemId.yml
+  responses:
+    '200':
+      description: '正常応答'
+      content: {}

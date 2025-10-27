@@ -1,0 +1,9 @@
+title: CartsResponse
+type: array
+items:
+  allOf:
+    - $ref: ../../schemas/models/Cart.yml
+    - type: object
+      properties:
+        item:
+          $ref: '../../schemas/models/Item.yml'

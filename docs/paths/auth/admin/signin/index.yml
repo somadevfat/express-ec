@@ -1,0 +1,20 @@
+post:
+  tags:
+    - auth
+  summary: 管理者ログイン
+  description: ログインを行います。csrfのトークンを取得してから実行してください。
+  security: []  # 認証不要
+  requestBody:
+    description: リクエスト
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: ../../../../requests/auth/AuthSigninRequest.yml
+  responses:
+    '200':
+      description: '正常応答'
+      content:
+        application/json:
+          schema:
+            $ref: ../../../../responses/auth/AuthSigninResponse.yml

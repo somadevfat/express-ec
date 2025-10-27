@@ -1,0 +1,49 @@
+### 変数定義
+@baseUrl = http://localhost:3000
+@admin_bearer = 
+
+###
+# ==================================================
+# 商品 (Items)
+# ==================================================
+###
+
+### 商品一覧取得（未実装のため保留）
+# GET {{baseUrl}}/items
+
+### 商品詳細取得 (ID: 1)（未実装のため保留）
+# GET {{baseUrl}}/items/1
+
+### 商品詳細取得 (存在しないID)（未実装のため保留）
+# GET {{baseUrl}}/items/999
+
+### 商品作成 (管理者)（未実装のため保留）
+# POST {{baseUrl}}/items
+# Content-Type: application/json
+# Authorization: Bearer {{admin_bearer}}
+#
+# {
+#   "name": "新しいテスト商品",
+#   "price": 3000,
+#   "description": "これはREST Clientからのテスト商品です。",
+#   "image_url": "http://example.com/test.jpg"
+# }
+
+### 商品更新 (管理者)（未実装のため保留）
+# PUT {{baseUrl}}/items/1
+# Content-Type: application/json
+# Authorization: Bearer {{admin_bearer}}
+#
+# {
+#   "name": "更新された商品",
+#   "price": 1500,
+#   "description": "この商品は更新されました。",
+#   "image_url": "http://example.com/updated.jpg"
+# }
+
+### 商品削除 (管理者)（未実装のため保留）
+# DELETE {{baseUrl}}/items/2
+# Authorization: Bearer {{admin_bearer}}
+
+### 備考
+# 現行リポジトリに items ルートの実装は無いためリクエストはコメントアウトしています。

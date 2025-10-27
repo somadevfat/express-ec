@@ -1,0 +1,17 @@
+title: StoreRequest
+
+type: array
+items:
+  type: object
+  properties:
+    item_id:
+      type: integer
+      description: 商品ID
+      example: 2
+    quantity:
+      type: integer
+      description: 個数
+      example: 3
+  required:
+    - item_id
+    - quantity

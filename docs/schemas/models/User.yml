@@ -1,0 +1,53 @@
+title: User
+type: object
+properties:
+  id:
+    type: integer
+    description: id
+    example: 1
+  email:
+    type: string
+    description: メールアドレス
+    maxLength: 255
+    example: "ishikawa@sg.sandbox"
+  emailVerifiedAt:
+    type: string
+    nullable: true
+    description: Laravelのメール認証日時
+    example: "2023-03-14 19:39:38"
+  emailReissueToken:
+    type: string
+    nullable: true
+    description: パスワード再発行のトークン
+    example: "XXXXXXXXXX"
+  isAdmin:
+    type: boolean
+    description: 管理者フラグ
+    example: false
+  createdAt:
+    type: string
+    format: date-time
+    description: 作成日
+    example: "2023-03-14 19:32:41"
+  updatedAt:
+    type: string
+    format: date-time
+    description: 更新日
+    example: "2023-03-15 18:03:09"
+  createdBy:
+    type: integer
+    description: 作成者
+    example: 1
+  updatedBy:
+    type: integer
+    description: 更新者
+    example: 1
+required:
+  - id
+  - email
+  - isAdmin
+  - status
+  - createdAt
+  - updatedAt
+  - createdBy
+  - updatedBy

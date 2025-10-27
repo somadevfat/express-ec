@@ -1,0 +1,54 @@
+title: Pagination
+type: object
+properties:
+  currentPage:
+    description: 現在のページ番号
+    type: integer
+    example: 3
+  from:
+    description: 現在のページの最後のデータ番号
+    type: integer
+    example: 5
+  lastPage:
+    description: 最後のページ番号
+    type: integer
+    example: 4
+  lastPageUrl:
+    description: 最後のページのURL
+    type: string
+    example: 'http://localhost/api/{endpoint}?limit=2&page=4'
+  nextPageUrl:
+    description: 次のページのURL
+    type: string
+    example: 'http://localhost/api/{endpoint}?limit=2&page=4'
+  path:
+    description: エンドポイント
+    type: string
+    example: 'http://localhost/api/{endpoint}'
+  perPage:
+    description: １ページ当たりのデータ数
+    type: integer
+    example: 2
+  prevPageUrl:
+    description: 前のページのURL
+    type: string
+    example: 'http://localhost/api/{endpoint}?limit=2&page=2'
+  to:
+    description: 現在のページの最初データ番号
+    type: integer
+    example: 6
+  total:
+    description: 検索ヒット数
+    type: integer
+    example: 8
+required:
+  - currentPage
+  - from
+  - lastPage
+  - lastPageUrl
+  - nextPageUrl
+  - path
+  - perPage
+  - prevPageUrl
+  - to
+  - total

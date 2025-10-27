@@ -1,0 +1,68 @@
+# 変数設定
+@hostname = http://localhost
+@port = 3000
+@api = {{hostname}}:{{port}}/api
+
+###
+# 1. サインイン成功 (POST /auth/signin)
+POST {{api}}/auth/signin
+Content-Type: application/json
+
+{
+  "email": "admin@lh.sandbox",
+  "password": "pass"
+}
+
+###
+# 2. サインイン失敗: メール形式不正
+POST {{api}}/auth/signin
+Content-Type: application/json
+
+{
+  "email": "bad",
+  "password": "pass"
+}
+
+###
+# 3. サインイン失敗: パスワード欠落
+POST {{api}}/auth/signin
+Content-Type: application/json
+
+{
+  "email": "admin@lh.sandbox"
+}
+
+###
+# 4. 管理者サインイン成功 (POST /auth/admin/signin)
+POST {{api}}/auth/admin/signin
+Content-Type: application/json
+
+{
+  "email": "admin@lh.sandbox",
+  "password": "pass"
+}
+
+###
+# 5. サインアップ成功 (POST /auth/signup)
+POST {{api}}/auth/signup
+Content-Type: application/json
+
+{
+  "email": "user+rest@example.com",
+  "password": "pass"
+}
+
+###
+# 6. サインアップ失敗: パスワード欠落
+POST {{api}}/auth/signup
+Content-Type: application/json
+
+{
+  "email": "user+bad@example.com"
+}
+
+###
+# 7. サインアウト (POST /auth/signout)
+POST {{api}}/auth/signout
+
+

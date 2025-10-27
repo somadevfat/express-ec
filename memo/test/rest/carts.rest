@@ -1,0 +1,36 @@
+# 変数設定
+@hostname = http://localhost
+@port = 18081
+@api = {{hostname}}:{{port}}/api
+
+###
+# 1. カート取得 (GET /carts)
+GET {{api}}/carts
+
+###
+# 2. カート更新 成功 (POST /carts)
+POST {{api}}/carts
+Content-Type: application/json
+
+[
+  {"item_id": 1, "quantity": 2},
+  {"item_id": 2, "quantity": 0}
+]
+
+###
+# 3. カート更新 失敗: 数量が負数
+POST {{api}}/carts
+Content-Type: application/json
+
+[
+  {"item_id": 1, "quantity": -1}
+]
+
+###
+# 4. カート更新 失敗: 空配列
+POST {{api}}/carts
+Content-Type: application/json
+
+[]
+
+

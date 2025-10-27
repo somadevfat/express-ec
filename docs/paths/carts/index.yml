@@ -1,0 +1,31 @@
+get:
+  tags:
+    - carts
+  summary: カート一覧
+  description: カート一覧
+  responses:
+    '200':
+      description: '正常応答'
+      content:
+        application/json:
+          schema:
+            $ref: ../../responses/carts/CartsResponse.yml
+post:
+  tags:
+    - carts
+  summary: カート追加
+  description: カート追加
+  requestBody:
+    description: リクエスト
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: ../../requests/carts/UpdateRequest.yml
+  responses:
+    '200':
+      description: '正常応答'
+      content:
+        application/json:
+          schema:
+            $ref: ../../responses/carts/CartsResponse.yml

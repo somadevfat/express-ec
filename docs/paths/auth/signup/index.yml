@@ -1,0 +1,19 @@
+post:
+  tags:
+    - auth
+  summary: サインアップ（ユーザ登録）
+  description: サインアップ（ユーザ登録）
+  requestBody:
+    description: リクエスト
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: ../../../requests/auth/AuthSignupRequest.yml
+  responses:
+    '200':
+      description: '正常応答'
+      content:
+        application/json:
+          schema:
+            $ref: ../../../responses/auth/AuthSignupResponse.yml

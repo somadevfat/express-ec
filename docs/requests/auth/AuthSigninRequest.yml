@@ -1,0 +1,14 @@
+title: AuthSignupRequest
+type: object
+properties:
+  email:
+    type: string
+    description: メールアドレス
+    example: "admin@lh.sandbox"
+  password:
+    type: string
+    description: パスワード
+    example: "pass"
+required:
+  - email
+  - password

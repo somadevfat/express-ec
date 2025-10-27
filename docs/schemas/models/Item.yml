@@ -1,0 +1,51 @@
+title: Item
+type: object
+properties:
+  id:
+    type: integer
+    description: id
+    example: 1
+  name:
+    type: string
+    description: 名前
+    maxLength: 255
+    example: "商品"
+  price:
+    type: integer
+    description: 金額
+    example: 120
+  image:
+    type: string
+    description: 画像のURL
+    example: "http://localhost:8080/storage/items/13/images/6683b784f3c45.png"
+  content:
+    type: string
+    description: 商品詳細
+    example: "商品詳細！"
+  createdAt:
+    type: string
+    format: date-time
+    description: 作成日
+    example: "2023-03-14 19:32:41"
+  updatedAt:
+    type: string
+    format: date-time
+    description: 更新日
+    example: "2023-03-15 18:03:09"
+  createdBy:
+    type: integer
+    description: 作成者
+    example: 1
+  updatedBy:
+    type: integer
+    description: 更新者
+    example: 1
+required:
+  - id
+  - name
+  - price
+  - contents
+  - createdAt
+  - updatedAt
+  - createdBy
+  - updatedBy

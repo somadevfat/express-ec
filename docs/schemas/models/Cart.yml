@@ -1,0 +1,46 @@
+title: Cart
+type: object
+properties:
+  id:
+    type: integer
+    description: id
+    example: 1
+  userId:
+    type: integer
+    description: ユーザID
+    example: 1
+  itemId:
+    type: integer
+    description: 商品ID
+    example: 2
+  quantity:
+    type: integer
+    description: 個数
+    example: 3
+  createdAt:
+    type: string
+    format: date-time
+    description: 作成日
+    example: "2023-03-14 19:32:41"
+  updatedAt:
+    type: string
+    format: date-time
+    description: 更新日
+    example: "2023-03-15 18:03:09"
+  createdBy:
+    type: integer
+    description: 作成者
+    example: 1
+  updatedBy:
+    type: integer
+    description: 更新者
+    example: 1
+required:
+  - id
+  - userId
+  - itemId
+  - quantity
+  - createdAt
+  - updatedAt
+  - createdBy
+  - updatedBy

@@ -1,0 +1,10 @@
+title: CreditDetailResponse
+type: object
+allOf:
+  - properties:
+      data:
+        type: array
+        items:
+          $ref: ../../../schemas/models/Credit.yml
+required:
+  - data

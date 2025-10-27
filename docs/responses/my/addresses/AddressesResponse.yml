@@ -1,0 +1,10 @@
+title: AddressesResponse
+allOf:
+  - type: object
+    properties:
+      data:
+        type: array
+        items:
+          $ref: ../../../schemas/models/Address.yml
+required:
+  - data

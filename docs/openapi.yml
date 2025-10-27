@@ -1,0 +1,55 @@
+openapi: 3.0.0
+info:
+  title: OpenAPI Template
+  description: Template of split OpenAPI with validator
+  version: 1.0.0
+servers:
+  - url: "{server}"
+    description: URL of the server
+    variables:
+      server:
+        default: http://localhost:8080/api
+paths:
+  # 認証
+  /auth/signin:
+    $ref: ./paths/auth/signin/index.yml
+  /auth/admin/signin:
+    $ref: ./paths/auth/admin/signin/index.yml
+  /auth/signout:
+    $ref: ./paths/auth/signout/index.yml
+#  /auth/signup:
+#    $ref: ./paths/auth/signup/index.yml
+
+  # ログインユーザー関連のエンドポイント
+  /my/user:
+    $ref: ./paths/my/user/index.yml
+
+  # ログインユーザー関連のエンドポイント
+  /items:
+    $ref: ./paths/items/index.yml
+  /items/{ItemId}:
+    $ref: ./paths/items/itemId/index.yml
+  /carts:
+    $ref: ./paths/carts/index.yml
+  /carts/{cartId}:
+    $ref: ./paths/carts/cartId/index.yml
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: JWTトークンを入力してください
+  schemas:
+    User:
+      $ref: ./schemas/models/User.yml
+    Pagenation:
+      $ref: ./schemas/models/Pagination.yml
+    Item:
+      $ref: ./schemas/models/Item.yml
+    Cart:
+      $ref: ./schemas/models/Cart.yml
+
+# グローバルセキュリティ設定（認証が必要なエンドポイントに適用）
+security:
+  - bearerAuth: []

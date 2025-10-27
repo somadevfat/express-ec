@@ -1,0 +1,11 @@
+title: UpdateUserEmailRequest
+type: object
+properties:
+  email:
+    type: string
+    description: メールアドレス
+    maxLength: 255
+    example: "ishikawa@sg.sandbox"
+
+required:
+  - email

@@ -1,0 +1,8 @@
+in: path
+name: cartId
+description: カートID
+required: true
+schema:
+  type: integer
+  description: カートID
+  example: 1

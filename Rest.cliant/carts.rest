@@ -1,0 +1,30 @@
+### 変数定義
+@baseUrl = http://localhost:3000
+@bearer = 
+
+###
+# ==================================================
+# カート (Carts)
+# ==================================================
+###
+
+### カート情報取得（未実装のため保留）
+# GET {{baseUrl}}/carts
+# Authorization: Bearer {{bearer}}
+
+### カートに商品を追加 (未実装のため保留)
+# POST {{baseUrl}}/carts
+# Content-Type: application/json
+# Authorization: Bearer {{bearer}}
+#
+# {
+#   "itemId": 1,
+#   "quantity": 2
+# }
+
+### カートから商品を削除（未実装のため保留）
+# DELETE {{baseUrl}}/carts/items/1
+# Authorization: Bearer {{bearer}}
+
+### 備考
+# 現行リポジトリに carts ルートの実装は無いためリクエストはコメントアウトしています。
